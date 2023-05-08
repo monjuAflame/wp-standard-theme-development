@@ -35,7 +35,22 @@ if ( ! function_exists( 'comet_setup' ) ) {
 		 * This theme does not use a hard-coded <title> tag in the document head,
 		 * WordPress will provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+        add_theme_support( 'title-tag' );
+
+        /*
+         * Post Formats
+		*/
+		add_theme_support('post-thumbnails');
+        
+        /*
+         * Post Formats
+		 */
+		add_theme_support('post-formats', array(
+            'video',
+            'audio',
+            'quote',
+            'gallery'
+        ) );
 
     }
 
@@ -74,6 +89,8 @@ if ( ! function_exists('comet_styles')) {
         wp_enqueue_style( 'bundle', get_template_directory_uri() . '/css/bundle.css');
         wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css');
         wp_enqueue_style( 'fonts', get_comet_fonts());
+
+        wp_enqueue_style('stylesheet', get_stylesheet_uri());
     }
 
 }
@@ -119,3 +136,11 @@ if( ! function_exists('comet_scripts')){
 add_action( 'wp_enqueue_scripts', 'comet_scripts');
 
 
+// gallery post shortcode
+
+
+if( !function_exists(dirname(__FILE__) . '/gallery.php')) {
+
+    require_once(dirname(__FILE__) . '/gallery.php');
+
+}
