@@ -26,3 +26,45 @@ Tags: buisness, photography, blog, ecommerce
     margin: 0;
     border: 0;
 }
+
+/* pagination */
+
+.pagination {
+	display: block;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.pagination a {
+	color: #191b1d;
+	border-color: transparent;
+	font-size: 14px;
+	border-radius: 0;
+	background-color: transparent;
+}
+.pagination a {
+	position: inline-block;
+	padding: 6px 12px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	color: #337ab7;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	color: #191b1d;
+	border-color: transparent;
+	font-size: 14px;
+	border-radius: 0;
+	background-color: transparent;
+}
+.pagination span.current {
+	background-color: #EF2D56;
+	border-color: #EF2D56;
+    color: #fff;
+    padding: 6px 12px;
+}
+.pagination a:hover {
+	background-color: #191b1d;
+	color: #fff;
+	border-color: #191b1d;
+}
