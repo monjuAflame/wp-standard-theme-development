@@ -136,6 +136,30 @@ if( ! function_exists('comet_scripts')){
 add_action( 'wp_enqueue_scripts', 'comet_scripts');
 
 
+// Sidebar Registration
+
+if( ! function_exists('sidebar_registration')){
+
+    function sidebar_registration(){
+    
+        register_sidebar( array(
+            'name' => 'Right Sidebar',
+            'description' => 'This is Right Sidebar',
+            'id' => 'right-sidebar',
+            'before_widget' => '<div class="widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h6 class="upper">',
+            'after_title' => '</h6>'
+        ));
+    
+    }
+
+}
+
+
+add_action( 'widgets_init', 'sidebar_registration' );
+
+
 // gallery post shortcode
 
 

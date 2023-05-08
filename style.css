@@ -68,3 +68,46 @@ Tags: buisness, photography, blog, ecommerce
 	color: #fff;
 	border-color: #191b1d;
 }
+
+/* widget */
+
+.widget ul {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+.widget ul li {
+	margin-bottom: 0;
+}
+.widget ul > li > a {
+	padding: 12px 0;
+	border-bottom: 1px solid #e7e7e7;
+	letter-spacing: 1px;
+}
+.widget ul > li > span {
+	display: block;
+	color: #79818a;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.widget .tagcloud {
+    overflow: hidden;
+}
+.widget .tagcloud a {
+	display: block;
+	float: left;
+	padding: 10px 15px;
+	border: 1px solid #191b1d;
+	margin: 0 10px 10px 0;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	font-weight: 500;
+}
+.widget .tagcloud a:hover {
+	background-color: #EF2D56;
+	border-color: #EF2D56;
+	color: #fff;
+}
