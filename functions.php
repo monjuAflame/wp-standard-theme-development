@@ -143,8 +143,8 @@ if( ! function_exists('sidebar_registration')){
     function sidebar_registration(){
     
         register_sidebar( array(
-            'name' => 'Right Sidebar',
-            'description' => 'This is Right Sidebar',
+            'name' => __('Right Sidebar', 'comet'),
+            'description' => __('This is Right Sidebar', 'comet'),
             'id' => 'right-sidebar',
             'before_widget' => '<div class="widget">',
             'after_widget' => '</div>',
@@ -162,9 +162,16 @@ add_action( 'widgets_init', 'sidebar_registration' );
 
 // gallery post shortcode
 
-
 if( !function_exists(dirname(__FILE__) . '/gallery.php')) {
 
     require_once(dirname(__FILE__) . '/gallery.php');
+
+}
+
+// custom widget
+
+if( !function_exists(dirname(__FILE__) . '/custom-widgets/latest-post.php')) {
+
+    require_once(dirname(__FILE__) . '/custom-widgets/latest-post.php');
 
 }
