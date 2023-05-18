@@ -52,6 +52,45 @@ if ( ! function_exists( 'comet_setup' ) ) {
             'gallery'
         ) );
 
+
+        $labels = array(
+            'name'                => __( 'Portfolios', 'Post Type General Name', 'comet' ),
+            'singular_name'       => __( 'Portfolio', 'Post Type Singular Name', 'comet' ),
+            'menu_name'           => __( 'Portfolios', 'comet' ),
+            'parent_item_colon'   => __( 'Parent Portfolio', 'comet' ),
+            'all_items'           => __( 'All Portfolio', 'comet' ),
+            'view_item'           => __( 'View Portfolio', 'comet' ),
+            'add_new_item'        => __( 'Add New Portfolio', 'comet' ),
+            'add_new'             => __( 'Add New', 'comet' ),
+            'edit_item'           => __( 'Edit Portfolio', 'comet' ),
+            'update_item'         => __( 'Update Portfolio', 'comet' ),
+            'search_items'        => __( 'Search Portfolio', 'comet' ),
+            'not_found'           => __( 'Not Found', 'comet' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'comet' ),
+        );
+        $portolio_array = array(
+            'label'               => __( 'portfolio', 'comet' ),
+            'description'         => __( 'Portfolio Post Type', 'comet' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'thumbnail'),
+            'taxonomies'          => array( 'genres' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+      
+        );
+        register_post_type( 'comet-portfolios', $portolio_array);
+
     }
 
 }
@@ -151,7 +190,27 @@ if( ! function_exists('sidebar_registration')){
             'before_title' => '<h6 class="upper">',
             'after_title' => '</h6>'
         ));
-    
+
+        register_sidebar( array(
+            'name' => __('Footer Widget Area', 'comet'),
+            'description' => __('This is Footer Widget Area', 'comet'),
+            'id' => 'footer-area',
+            'before_widget' => '<div class="col-sm-4"><div class="widget">',
+            'after_widget' => '</div></div>',
+            'before_title' => '<h6 class="upper">',
+            'after_title' => '</h6>',
+        ));
+
+        register_sidebar( array(
+            'name' => __('Footer Subscribe Area', 'comet'),
+            'description' => __('This is Footer Subscribe Area', 'comet'),
+            'id' => 'footer-subscribe-area',
+            'before_widget' => '<div class="widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h6 class="upper">',
+            'after_title' => '</h6>',
+        ));
+
     }
 
 }
@@ -162,7 +221,7 @@ add_action( 'widgets_init', 'sidebar_registration' );
 
 // gallery post shortcode
 
-if( !function_exists(dirname(__FILE__) . '/gallery.php')) {
+if( file_exists(dirname(__FILE__) . '/gallery.php')) {
 
     require_once(dirname(__FILE__) . '/gallery.php');
 
@@ -170,8 +229,17 @@ if( !function_exists(dirname(__FILE__) . '/gallery.php')) {
 
 // custom widget
 
-if( !function_exists(dirname(__FILE__) . '/custom-widgets/latest-post.php')) {
+if( file_exists(dirname(__FILE__) . '/custom-widgets/latest-post.php')) {
 
     require_once(dirname(__FILE__) . '/custom-widgets/latest-post.php');
 
 }
+
+if( file_exists(dirname(__FILE__) . '/custom-widgets/footer-about.php')) {
+
+    require_once(dirname(__FILE__) . '/custom-widgets/footer-about.php');
+
+}
+
+
+

@@ -111,3 +111,13 @@ Tags: buisness, photography, blog, ecommerce
 	border-color: #EF2D56;
 	color: #fff;
 }
+
+.footer-newsletter .form-control {
+	border-color: #494e53;
+	max-width: 221px !important;
+}
+.footer-newsletter .input-group-btn > .btn {
+	position: relative;
+	display: inline-flex !important;
+	margin: -21px 0 !important;
+}
