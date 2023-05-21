@@ -241,5 +241,11 @@ if( file_exists(dirname(__FILE__) . '/custom-widgets/footer-about.php')) {
 
 }
 
+// if( file_exists(dirname(__FILE__)) . '/lib/codestar-framework.php'){
+
+    require_once get_theme_file_path() .'/lib/codestar-framework.php';
+
+// }
+
 
 

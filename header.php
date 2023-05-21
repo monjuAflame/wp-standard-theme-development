@@ -31,9 +31,14 @@
       <div class="container">
         <!-- Logo container-->
         <div class="logo">
-          <a href="index.html">
-            <img src="images/logo_light.png" alt="" class="logo-light">
-            <img src="images/logo_dark.png" alt="" class="logo-dark">
+          <a href="<?php echo home_url(  ) ?>">
+            <?php 
+              $comet = get_option( 'comet' );
+              global $comet;
+            ?>
+            <img src="<?php echo isset($comet['logo-light']['placeholder']) ? $comet['logo-light']['placeholder'] : $comet['logo-light']['url'] ?>" alt="" class="logo-light">
+
+            <img src="<?php echo isset($comet['logo-dark']['placeholder']) ? $comet['logo-dark']['placeholder'] : $comet['logo-dark']['url'] ?>" alt="" class="logo-dark">
           </a>
         </div>
         <!-- End Logo container-->

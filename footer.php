@@ -32,7 +32,11 @@
       <div class="row">
         <div class="col-md-4">
           <div class="copy-text">
-            <p><i class="icon-heart red mr-15"></i>© 2015 Comet Agency.</p>
+          <?php 
+              $comet = get_option( 'comet' );
+              global $comet;
+            ?>
+            <p><i class="icon-heart red mr-15"></i><?php echo $comet['footer-copyright'] ?></p>
           </div>
         </div>
         <div class="col-md-4">
@@ -55,19 +59,22 @@
           <div class="footer-social">
             <ul>
               <li>
-                <a target="_blank" href="#"><i class="ti-facebook"></i></a>
+                <?php echo isset($comet['social-facebook']) && $comet['social-facebook']!="" ?  '<a target="_blank" href="'.$comet['social-facebook'].'"><i class="ti-facebook"></i></a>' : ''  ?>
               </li>
               <li>
-                <a target="_blank" href="#"><i class="ti-twitter-alt"></i></a>
+                <?php echo isset($comet['social-twitter']) && $comet['social-twitter']!="" ?  '<a target="_blank" href="'.$comet['social-twitter'].'"><i class="ti-twitter-alt"></i></a>' : ''  ?>
+                <a target="_blank" href="#"><i class=""></i></a>
               </li>
               <li>
-                <a target="_blank" href="#"><i class="ti-linkedin"></i></a>
+                <?php echo isset($comet['social-linkedin']) && $comet['social-linkedin']!="" ?  '<a target="_blank" href="'.$comet['social-linkedin'].'"><i class="ti-linkedin"></i></a>' : ''  ?>
+                <a target="_blank" href="#"><i class=""></i></a>
               </li>
               <li>
-                <a target="_blank" href="#"><i class="ti-instagram"></i></a>
+                <?php echo isset($comet['social-instagram']) && $comet['social-instagram']!="" ?  '<a target="_blank" href="'.$comet['social-instagram'].'"><i class="ti-instagram"></i></a>' : ''  ?>
+                <a target="_blank" href="#"><i class=""></i></a>
               </li>
               <li>
-                <a target="_blank" href="#"><i class="ti-dribbble"></i></a>
+                <?php echo isset($comet['social-dribbble']) && $comet['social-dribbble']!="" ?  '<a target="_blank" href="'.$comet['social-dribbble'].'"><i class="ti-dribbble"></i></a>' : ''  ?>
               </li>
             </ul>
           </div>

@@ -12,10 +12,11 @@
       <div class="parallax-overlay">
         <div class="centrize">
           <div class="v-center">
+          <?php  $comet = get_option( 'comet' ); global $comet; ?>
             <div class="container">
               <div class="title center">
-                <h1 class="upper">This is our blog<span class="red-dot"></span></h1>
-                <h4>We have a few tips for you.</h4>
+                <h1 class="upper"><?php echo $comet['blog-title'] ?><span class="red-dot"></span></h1>
+                <h4><?php echo $comet['blog-subtitle'] ?></h4>
                 <hr>
               </div>
             </div>
