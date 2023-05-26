@@ -211,6 +211,8 @@ if( ! function_exists('sidebar_registration')){
             'after_title' => '</h6>',
         ));
 
+        register_nav_menu('footer-menu', __('Footer Menu', 'comet'));
+
     }
 
 }

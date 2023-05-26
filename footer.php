@@ -40,20 +40,10 @@
           </div>
         </div>
         <div class="col-md-4">
-          <ul class="list-inline">
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Services</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
+          <?php wp_nav_menu( array(
+            'theme_location' => 'footer-menu',
+            'menu_class' => 'list-inline'
+          ) ) ?>
         </div>
         <div class="col-md-4">
           <div class="footer-social">
