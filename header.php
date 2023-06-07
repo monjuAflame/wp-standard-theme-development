@@ -34,7 +34,6 @@
           <a href="<?php echo home_url(  ) ?>">
             <?php 
               $comet = get_option( 'comet' );
-              global $comet;
             ?>
             <img src="<?php echo isset($comet['logo-light']['placeholder']) ? $comet['logo-light']['placeholder'] : $comet['logo-light']['url'] ?>" alt="" class="logo-light">
 
