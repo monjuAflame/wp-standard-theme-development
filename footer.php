@@ -53,15 +53,12 @@
               </li>
               <li>
                 <?php echo isset($comet['social-twitter']) && $comet['social-twitter']!="" ?  '<a target="_blank" href="'.$comet['social-twitter'].'"><i class="ti-twitter-alt"></i></a>' : ''  ?>
-                <a target="_blank" href="#"><i class=""></i></a>
               </li>
               <li>
                 <?php echo isset($comet['social-linkedin']) && $comet['social-linkedin']!="" ?  '<a target="_blank" href="'.$comet['social-linkedin'].'"><i class="ti-linkedin"></i></a>' : ''  ?>
-                <a target="_blank" href="#"><i class=""></i></a>
               </li>
               <li>
                 <?php echo isset($comet['social-instagram']) && $comet['social-instagram']!="" ?  '<a target="_blank" href="'.$comet['social-instagram'].'"><i class="ti-instagram"></i></a>' : ''  ?>
-                <a target="_blank" href="#"><i class=""></i></a>
               </li>
               <li>
                 <?php echo isset($comet['social-dribbble']) && $comet['social-dribbble']!="" ?  '<a target="_blank" href="'.$comet['social-dribbble'].'"><i class="ti-dribbble"></i></a>' : ''  ?>
