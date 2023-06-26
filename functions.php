@@ -54,9 +54,9 @@ if ( ! function_exists( 'comet_setup' ) ) {
 
 
         $labels = array(
-            'name'                => __( 'Portfolios', 'Post Type General Name', 'comet' ),
+            'name'                => __( 'Portfolio', 'Post Type General Name', 'comet' ),
             'singular_name'       => __( 'Portfolio', 'Post Type Singular Name', 'comet' ),
-            'menu_name'           => __( 'Portfolios', 'comet' ),
+            'menu_name'           => __( 'Portfolio', 'comet' ),
             'parent_item_colon'   => __( 'Parent Portfolio', 'comet' ),
             'all_items'           => __( 'All Portfolio', 'comet' ),
             'view_item'           => __( 'View Portfolio', 'comet' ),
@@ -86,7 +86,7 @@ if ( ! function_exists( 'comet_setup' ) ) {
             'exclude_from_search' => false,
             'publicly_queryable'  => true,
             'capability_type'     => 'post',
-            'show_in_rest' => true,
+            'show_in_rest'        => true,
       
         );
         register_post_type( 'comet-portfolios', $portolio_array);
@@ -174,6 +174,75 @@ if( ! function_exists('comet_scripts')){
 
 add_action( 'wp_enqueue_scripts', 'comet_scripts');
 
+if( ! function_exists('comet_admin_scripts')){
+
+    function comet_admin_scripts(){ ?>
+        
+        <?php if (get_post_type() == 'post') :  ?>
+
+            <script>
+
+                jQuery(document).ready(function(){
+
+                    var id = jQuery('input[name="post_format"]:checked').attr('id');
+                    
+                    if (id == 'post-format-video') {
+                        jQuery('.cmb2-id--for-video').show();
+                    } else {
+                        jQuery('.cmb2-id--for-video').hide();
+                    }
+
+                    if (id == 'post-format-audio') {
+                        jQuery('.cmb2-id--for-audio').show();
+                    } else {
+                        jQuery('.cmb2-id--for-audio').hide();
+                    }
+
+                    if (id == 'post-format-gallery') {
+                        jQuery('.cmb2-id--for-gallery').show();
+                    } else {
+                        jQuery('.cmb2-id--for-gallery').hide();
+                    }
+
+                    jQuery('input[name="post_format"]').change(function(){
+
+                        jQuery('.cmb2-id--for-audio').hide();
+                        jQuery('.cmb2-id--for-gallery').hide();
+                        jQuery('.cmb2-id--for-video').hide();
+
+                        var id = jQuery('input[name="post_format"]:checked').attr('id');
+
+                        if (id == 'post-format-video') {
+                            jQuery('.cmb2-id--for-video').show();
+                        } else {
+                            jQuery('.cmb2-id--for-video').hide();
+                        }
+
+                        if (id == 'post-format-audio') {
+                            jQuery('.cmb2-id--for-audio').show();
+                        } else {
+                            jQuery('.cmb2-id--for-audio').hide();
+                        }
+
+                        if (id == 'post-format-gallery') {
+                            jQuery('.cmb2-id--for-gallery').show();
+                        } else {
+                            jQuery('.cmb2-id--for-gallery').hide();
+                        }
+
+                    });
+
+
+                })
+                
+            </script>
+            
+        <?php endif; ?>
+
+    <?php }
+}
+
+add_action( 'admin_print_scripts',  'comet_admin_scripts', 1000 );
 
 // Sidebar Registration
 
@@ -243,11 +312,23 @@ if( file_exists(dirname(__FILE__) . '/custom-widgets/footer-about.php')) {
 
 }
 
-// if( file_exists(dirname(__FILE__)) . '/lib/codestar-framework.php'){
+if( file_exists(dirname(__FILE__)) . '/lib/codestar-framework.php'){
 
     require_once get_theme_file_path() .'/lib/codestar-framework.php';
 
-// }
+}
+
+if( file_exists(dirname(__FILE__)) . '/lib/metabox/init.php'){
+
+    require_once get_theme_file_path() .'/lib/metabox/init.php';
+
+}
+if( file_exists(dirname(__FILE__)) . '/lib/metabox/config.php'){
+
+    require_once get_theme_file_path() .'/lib/metabox/config.php';
+
+}
+
 
 
 

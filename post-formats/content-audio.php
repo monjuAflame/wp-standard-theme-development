@@ -3,12 +3,12 @@
         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <h6 class="upper"><span>By</span><a href="#"> <?php the_author(); ?></a><span class="dot"></span><span><?php the_time('d F Y'); ?></span><span class="dot"></span><?php the_tags() ?></h6>
     </div>
-    <!-- <div class="post-media">
+    <div class="post-media">
         <div class="media-audio">
-        <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/51057943&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false"
-        frameborder="0"></iframe>
+            <?php echo wp_oembed_get( get_post_meta( get_the_id(), '_for-audio', true ) ); ?>
+
         </div>
-    </div> -->
+    </div>
     <div class="post-body">
         <?php the_content(); ?>
         <p><a href="<?php the_permalink(); ?>" class="btn btn-color btn-sm">Read More</a>
