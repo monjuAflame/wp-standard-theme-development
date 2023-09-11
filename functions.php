@@ -91,6 +91,16 @@ if ( ! function_exists( 'comet_setup' ) ) {
         );
         register_post_type( 'comet-portfolios', $portolio_array);
 
+        register_post_type('comet-slider', array(
+            'labels' => array(
+                'name' => 'Sliders',
+                'add_new' => 'Add new Slider',
+                'add_new_item' => 'Add new Slider'
+            ),
+            'public' => true,
+            'supports' => array('title', 'thumbnail')
+        ));
+
     }
 
 }
@@ -326,6 +336,11 @@ if( file_exists(dirname(__FILE__)) . '/lib/metabox/init.php'){
 if( file_exists(dirname(__FILE__)) . '/lib/metabox/config.php'){
 
     require_once get_theme_file_path() .'/lib/metabox/config.php';
+
+}
+if( file_exists(dirname(__FILE__)) . '/shortcodes/shortcodes.php'){
+
+    require_once get_theme_file_path() .'/shortcodes/shortcodes.php';
 
 }
 
