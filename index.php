@@ -8,7 +8,7 @@
 
     <!-- End Navigation Bar-->
     <section class="page-title parallax">
-      <div data-parallax="scroll" data-image-src="images/bg/18.jpg" class="parallax-bg"></div>
+      <div data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri() ?>/images/bg/18.jpg" class="parallax-bg"></div>
       <div class="parallax-overlay">
         <div class="centrize">
           <div class="v-center">
