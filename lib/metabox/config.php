@@ -28,6 +28,21 @@ function post_type_metabox() {
         'name' => 'Upload Images'
     ));
 
+    $sliders = new_cmb2_box(array(
+        'title' => 'Additional Field',
+        'id' => 'additional-for-slider',
+        'object_types' => array('comet-slider')
+    ));
+
+    $sliders->add_field(array(
+        'name' => 'Subtitle',
+        'id' => '_slider-subtitle',
+        'type' => 'text',
+    ));
+
+
+
+
 }
 
 ?>

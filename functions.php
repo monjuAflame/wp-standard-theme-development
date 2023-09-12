@@ -98,7 +98,7 @@ if ( ! function_exists( 'comet_setup' ) ) {
                 'add_new_item' => 'Add new Slider'
             ),
             'public' => true,
-            'supports' => array('title', 'thumbnail')
+            'supports' => array('title', 'editor', 'thumbnail')
         ));
 
     }
@@ -344,6 +344,12 @@ if( file_exists(dirname(__FILE__)) . '/shortcodes/shortcodes.php'){
 
 }
 
+register_activation_hook(__FILE__, 'flush_rewrite');
+
+function flush_rewrite() 
+{
+    flush_rewrite_rules();
+}
 
 
 

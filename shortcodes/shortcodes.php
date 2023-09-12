@@ -27,8 +27,8 @@ function comet_hero_slider()
               <div class="slide-content">
                 <div class="container">
                   <h1><?php the_title(); ?><span class="red-dot"></span></h1>
-                  <h6>We are a small design studio from San Francisco.</h6>
-                  <p><a href="#" class="btn btn-light-out">Read More</a><a href="#" class="btn btn-color btn-full">Services</a>
+                  <h6><?php echo get_post_meta(get_the_id(), '_slider-subtitle', true) ?></h6>
+                  <p><a href="<?php the_permalink() ?>" class="btn btn-light-out">Read More</a><a href="#" class="btn btn-color btn-full">Services</a>
                   </p>
                 </div>
               </div>
