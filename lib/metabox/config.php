@@ -40,6 +40,50 @@ function post_type_metabox() {
         'type' => 'text',
     ));
 
+    $sliders->add_field(array(
+        'name' => 'First Button Text',
+        'id' => '_first-button-text',
+        'type' => 'text',
+    ));
+
+    $sliders->add_field(array(
+        'name' => 'First Button Url',
+        'id' => '_first-button-url',
+        'type' => 'text',
+    ));
+
+    $sliders->add_field(array(
+        'name' => 'First Button Type',
+        'id' => '_first-button-type',
+        'type' => 'select',
+        'options' => array(
+            'red' => 'Red Button',
+            'transparent' => 'Transparent Button'
+        )
+    ));
+
+    $sliders->add_field(array(
+        'name' => 'Second Button Text',
+        'id' => '_second-button-text',
+        'type' => 'text',
+    ));
+
+    $sliders->add_field(array(
+        'name' => 'Second Button Url',
+        'id' => '_second-button-url',
+        'type' => 'text',
+    ));
+
+    $sliders->add_field(array(
+        'name' => 'Second Button Type',
+        'id' => '_second-button-type',
+        'type' => 'select',
+        'options' => array(
+            'red' => 'Red Button',
+            'transparent' => 'Transparent Button'
+        )
+    ));
+
 
 
 
