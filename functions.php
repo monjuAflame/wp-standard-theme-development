@@ -87,9 +87,19 @@ if ( ! function_exists( 'comet_setup' ) ) {
             'publicly_queryable'  => true,
             'capability_type'     => 'post',
             'show_in_rest'        => true,
-      
         );
         register_post_type( 'comet-portfolios', $portolio_array);
+
+        // portfolio category
+        register_taxonomy('comet-portfolio-category', 'comet-portfolios', array(
+            'labels'    => array(
+                'name' => 'Categories',
+                'add_new' => 'Add New Category',
+                'add_new_item' => 'Add New Category'
+            ),
+            'public' => true,
+            'hierarchical' => true
+        ));
 
         register_post_type('comet-slider', array(
             'labels' => array(

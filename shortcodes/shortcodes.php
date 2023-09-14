@@ -157,7 +157,7 @@ function comet_expertise_section($attr, $content = null)
 
     ob_start(); ?>
 
-  <section class="p-0 b-0">
+    <section class="p-0 b-0">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6 col-sm-4 img-side img-left mb-0">
@@ -227,5 +227,94 @@ function comet_expertise_section($attr, $content = null)
     <?php return ob_get_clean();
 }
 
+// comet portfolio 
+
+add_shortcode('comet-portfolio', 'comet_portfolio_section');
+
+function comet_portfolio_section($attr, $content)
+{
+  $attr = extract(shortcode_atts(array(
+                'title' => 'Selected Works'
+              ), $attr));
+  ob_start(); ?>
+
+    <section id="portfolio" class="pb-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="title m-0 txt-xs-center txt-sm-center">
+              <h2 class="upper"><?php echo $title; ?><span class="red-dot"></span></h2>
+              <hr>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <ul id="filters" class="no-fix mt-25">
+              <li data-filter="*" class="active">All</li>
+              <?php 
+                $categories = get_terms('comet-portfolio-category');
+
+                foreach ($categories as $item) {
+              ?>
+                <li data-filter=".<?php echo $item->slug; ?>"><?php echo $item->name; ?></li>
+              <?php    
+                }
+              ?>
+            </ul>
+            <!-- end of portfolio filters-->
+          </div>
+        </div>
+        <!-- end of row-->
+      </div>
+      <div class="section-content pb-0">
+        <div id="works" class="four-col wide mt-50">
+
+        <?php
+          $items = new WP_Query(array(
+            'post_type' => 'comet-portfolios'
+          ));
+          
+          while ($items->have_posts()): $items->the_post() 
+
+          ?>
+
+          <div class="work-item  <?php 
+
+                        $categories = get_the_terms(get_the_id(), 'comet-portfolio-category');
+                        foreach ($categories as $item) {
+                          echo $item->slug . " ";
+                        }
+                        ?>">
+            <div class="work-detail">
+              <a href="portfolio-single-1.html">
+                <?php echo the_post_thumbnail(); ?>
+                <div class="work-info">
+                  <div class="centrize">
+                    <div class="v-center">
+                      <h3><?php echo the_title(); ?></h3>
+                      <p>
+                        <?php 
+
+                          $categories = get_the_terms(get_the_id(), 'comet-portfolio-category');
+                          foreach ($categories as $item) {
+                            echo $item->name . " ";
+                          }
+                        ?>
+
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <?php endwhile; ?>
+
+        </div>
+        <!-- end of portfolio grid-->
+      </div>
+    </section>
+
+  <?php return ob_get_clean();
+}
 
 
