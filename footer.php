@@ -34,9 +34,11 @@
           <div class="copy-text">
           <?php 
               $comet = get_option( 'comet' );
-              global $comet;
             ?>
-            <p><i class="icon-heart red mr-15"></i><?php echo $comet['footer-copyright'] ?></p>
+            <p>
+              <i class="icon-heart red mr-15"></i>
+              <?php echo $comet['footer-copyright'] ?>
+            </p>
           </div>
         </div>
         <div class="col-md-4">
