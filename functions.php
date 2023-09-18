@@ -354,6 +354,19 @@ if( file_exists(dirname(__FILE__)) . '/shortcodes/shortcodes.php'){
 
 }
 
+if( file_exists(dirname(__FILE__)) . '/lib/plugins/require_plugin.php'){
+
+    require_once get_theme_file_path() .'/lib/plugins/require_plugin.php';
+
+}
+
+add_action('vc_before_init', 'setup_visual_composer');
+
+function setup_visual_composer() 
+{
+    vc_set_as_theme();
+}
+
 register_activation_hook(__FILE__, 'flush_rewrite');
 
 function flush_rewrite() 
