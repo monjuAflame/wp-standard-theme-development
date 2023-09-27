@@ -150,6 +150,9 @@ if ( ! function_exists('comet_styles')) {
         wp_enqueue_style( 'fonts', get_comet_fonts());
 
         wp_enqueue_style('stylesheet', get_stylesheet_uri());
+
+        wp_enqueue_style('comment-reply');
+
     }
 
 }
@@ -168,6 +171,8 @@ if ( ! function_exists('conditional_scripts')) {
         
         wp_enqueue_script( 'respond', 'https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js', array(), '', false);
         wp_script_add_data( 'respond', 'conditional', 'lt IE 9' );
+        
+        wp_enqueue_script('comment-reply');
     
     }
 
@@ -366,6 +371,68 @@ function setup_visual_composer()
 {
     vc_set_as_theme();
 }
+
+// Custom Comment Form
+
+add_filter( 'comment_form_defaults', 'comet_comment_form' );
+function comet_comment_form($defaults){
+	$defaults['comment_notes_before'] = '';
+	$defaults['class_form'] = 'comment-form';
+	$defaults['class_container'] = 'comment-respond';
+	$defaults['class_submit'] = 'btn btn-color-out';
+	$defaults['label_submit'] =  __( 'Comment' );
+	$defaults['title_reply'] =  __( 'LEAVE A COMMENT' );
+	$defaults['comment_field'] =  '<div class="form-group"><textarea id="comment" name="comment" placeholder="Comment" class="form-control" cols="45" rows="8" maxlength="65525" required="required"></textarea></div>';
+	
+	return $defaults;
+}
+add_filter( 'comment_form_default_fields','comet_comment_form_fields' );
+
+function comet_comment_form_fields(){
+
+	$commenter = wp_get_current_commenter();
+	$args = '';
+$args = wp_parse_args( $args );
+    if ( ! isset( $args['format'] ) ) {
+        $args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
+    }
+ 
+    $req = get_option('require_name_email');
+    $html_req = ( $req ? " required='required'" : '' );
+    $html5    = 'html5' === $args['format'];
+	
+$fields = array(
+        'author' => sprintf(
+            '<div class="form-group"> %s</div>',
+            
+            sprintf(
+                '<input id="author" name="author" type="text" placeholder="Name" value="%s" size="30" maxlength="245"%s class="form-control first" />',
+                esc_attr( $commenter['comment_author'] ),
+                $html_req
+            )
+        ),
+        'email'  => sprintf(
+            '<div class="form-group last"> %s</div>',
+           
+            sprintf(
+                '<input id="email" name="email" %s value="%s" placeholder="Email" class="form-control secend" size="20" maxlength="100" aria-describedby="email-notes"%s />',
+                ( $html5 ? 'type="email"' : 'type="text"' ),
+                esc_attr( $commenter['comment_author_email'] ),
+                $html_req
+            )
+        ),
+        
+        // 'comment_field' => sprintf(
+        //     '<div class="form-group"> %s</div>',
+            
+        //     '<textarea id="comment" name="comment" placeholder="Comment" class="form-control" cols="45" rows="8" maxlength="65525" required="required"></textarea>'
+        // )
+    );
+	
+
+	return $fields;
+}
+
 
 register_activation_hook(__FILE__, 'flush_rewrite');
 
