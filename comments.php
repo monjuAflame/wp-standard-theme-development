@@ -42,14 +42,14 @@ if ( post_password_required() )
             if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
         ?>
         <nav class="navigation comment-navigation" role="navigation">
-            <h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'comettwentyone' ); ?></h1>
-            <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'comettwentyone' ) ); ?></div>
-            <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'comettwentyone' ) ); ?></div>
+            <h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'comet' ); ?></h1>
+            <div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'comet' ) ); ?></div>
+            <div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'comet' ) ); ?></div>
         </nav><!-- .comment-navigation -->
         <?php endif; // Check for comment navigation ?>
  
         <?php if ( ! comments_open() && get_comments_number() ) : ?>
-        <p class="no-comments"><?php _e( 'Comments are closed.' , 'comettwentyone' ); ?></p>
+        <p class="no-comments"><?php _e( 'Comments are closed.' , 'comet' ); ?></p>
         <?php endif; ?>
  
     <?php endif; // have_comments() ?>
