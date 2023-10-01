@@ -30,9 +30,30 @@
                     <h6 class="upper"><span>By</span><a href="#"> <?php the_author(); ?></a><span class="dot"></span><span><?php the_time('d F Y'); ?></span><span class="dot"></span><?php the_tags() ?></h6>
                 </div>
                 <div class="post-media">
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail(); ?>
-                    </a>
+                <?php
+                    $postimg = the_post_thumbnail();
+                    $postvideo = wp_oembed_get(get_post_meta( get_the_id(), '_for-video', true ));
+                    $postgallerys = get_post_meta(get_the_id(), '_for-gallery', true);
+                    $postaudio = wp_oembed_get(get_post_meta( get_the_id(), '_for-audio', true ));
+
+
+                  ?>
+                  <?php if ($postimg == true) {?>
+                  <img src="<?php echo $postimg; ?>">
+                <?php }elseif($postaudio == true){?>
+                    <div class="media-video">
+                      <?php echo $postaudio;?>
+                    </div>
+                <?php }elseif($postvideo == true){?>
+                    <div class="media-video">
+                      <?php echo $postvideo;?>
+                    </div>
+                <?php }elseif($postgallerys == true){?>
+                    <div class="media-video">
+                      <?php foreach($postgallerys as $postgallery) :?>
+                          <li><img src="<?php echo $postgallery; ?>" alt=""></li>
+                      <?php endforeach; ?>
+                <?php } ?>
                 </div>
                 <div class="post-body">
                     <?php the_content(); ?>
