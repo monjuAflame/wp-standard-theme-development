@@ -42,6 +42,18 @@
 
             <!-- pagination -->
             <?php 
+
+            the_posts_pagination( array(
+              'type' => 'list',
+              'show_all' => false,
+              'end_size'           => 3,
+              'mid_size'           => 2,
+              'prev_text'          => __( '<span aria-hidden="true"><i class="ti-arrow-left"></i></span>' ),
+              'next_text'          => __( '<span aria-hidden="true"><i class="ti-arrow-right"></i></span>' ),
+            ) ); 
+
+
+            /*
                 if(function_exists('the_posts_pagination')){
                     the_posts_pagination( 
                         array(
@@ -55,6 +67,7 @@
                         )
                     );
                 }
+              */
             ?>
             <!-- pagination end -->
             
