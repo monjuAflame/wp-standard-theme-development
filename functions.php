@@ -6,6 +6,100 @@
  *
  */
 
+
+
+ if( file_exists(dirname(__FILE__)) . '/lib/codestar-framework.php'){
+
+    require_once get_theme_file_path() .'/lib/codestar-framework.php';
+
+}
+
+if( file_exists(dirname(__FILE__)) . '/lib/metabox/init.php'){
+
+    require_once get_theme_file_path() .'/lib/metabox/init.php';
+
+}
+if( file_exists(dirname(__FILE__)) . '/lib/metabox/config.php'){
+
+    require_once get_theme_file_path() .'/lib/metabox/config.php';
+
+}
+// ShortCode Files Require
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-slider.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-slider.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-about.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-about.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-service.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-service.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-vision.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-vision.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-clients.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-clients.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-testimonials.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-testimonials.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-blog.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-blog.php');
+	};
+
+	if(file_exists(dirname(__FILE__).'/shortcodes/shortcode-portfolio.php')){
+		require_once(dirname(__FILE__).'/shortcodes/shortcode-portfolio.php');
+	};
+
+    // custom widget
+
+if( file_exists(dirname(__FILE__) . '/custom-widgets/latest-post.php')) {
+
+    require_once(dirname(__FILE__) . '/custom-widgets/latest-post.php');
+
+}
+
+if( file_exists(dirname(__FILE__) . '/custom-widgets/footer-about.php')) {
+
+    require_once(dirname(__FILE__) . '/custom-widgets/footer-about.php');
+
+}
+
+
+
+if( file_exists(dirname(__FILE__)) . '/lib/plugins/require_plugin.php'){
+
+    require_once get_theme_file_path() .'/lib/plugins/require_plugin.php';
+
+}
+
+// Page Builder File Add
+
+if(file_exists(dirname(__FILE__).'/page-builder/element-remove.php')){
+    require_once(dirname(__FILE__).'/page-builder/element-remove.php');
+};
+
+
+if(file_exists(dirname(__FILE__).'/page-builder/element-add.php')){
+    require_once(dirname(__FILE__).'/page-builder/element-add.php');
+};
+// Page Builder File Add
+
+if(file_exists(dirname(__FILE__).'/page-builder/element-remove.php')){
+    require_once(dirname(__FILE__).'/page-builder/element-remove.php');
+};
+
+
+if(file_exists(dirname(__FILE__).'/page-builder/element-add.php')){
+    require_once(dirname(__FILE__).'/page-builder/element-add.php');
+};
+
 if ( ! function_exists( 'comet_setup' ) ) {
 
     /**
@@ -110,6 +204,8 @@ if ( ! function_exists( 'comet_setup' ) ) {
             'public' => true,
             'supports' => array('title', 'editor', 'thumbnail')
         ));
+
+        
 
     }
 
@@ -323,54 +419,7 @@ if( file_exists(dirname(__FILE__) . '/gallery.php')) {
 
 }
 
-// custom widget
 
-if( file_exists(dirname(__FILE__) . '/custom-widgets/latest-post.php')) {
-
-    require_once(dirname(__FILE__) . '/custom-widgets/latest-post.php');
-
-}
-
-if( file_exists(dirname(__FILE__) . '/custom-widgets/footer-about.php')) {
-
-    require_once(dirname(__FILE__) . '/custom-widgets/footer-about.php');
-
-}
-
-if( file_exists(dirname(__FILE__)) . '/lib/codestar-framework.php'){
-
-    require_once get_theme_file_path() .'/lib/codestar-framework.php';
-
-}
-
-if( file_exists(dirname(__FILE__)) . '/lib/metabox/init.php'){
-
-    require_once get_theme_file_path() .'/lib/metabox/init.php';
-
-}
-if( file_exists(dirname(__FILE__)) . '/lib/metabox/config.php'){
-
-    require_once get_theme_file_path() .'/lib/metabox/config.php';
-
-}
-if( file_exists(dirname(__FILE__)) . '/shortcodes/shortcodes.php'){
-
-    require_once get_theme_file_path() .'/shortcodes/shortcodes.php';
-
-}
-
-if( file_exists(dirname(__FILE__)) . '/lib/plugins/require_plugin.php'){
-
-    require_once get_theme_file_path() .'/lib/plugins/require_plugin.php';
-
-}
-
-add_action('vc_before_init', 'setup_visual_composer');
-
-function setup_visual_composer() 
-{
-    vc_set_as_theme();
-}
 
 // Custom Comment Form
 
